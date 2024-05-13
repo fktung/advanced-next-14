@@ -2,10 +2,12 @@ import { create } from "zustand";
 
 type TLayoutStore = {
   sidebarOpen: boolean;
+  minimizeSidebar: boolean;
 };
 
 const layoutStore = create<TLayoutStore>((set) => ({
   sidebarOpen: true,
+  minimizeSidebar: false,
 }));
 
 export const useLayout = () => {
@@ -14,5 +16,8 @@ export const useLayout = () => {
   const setSidebarOpen = (open: boolean) => {
     layoutStore.setState({ sidebarOpen: open });
   };
-  return { ...layout, setSidebarOpen };
+  const setMinimizeSidebar = (set: boolean) => {
+    layoutStore.setState({ minimizeSidebar: set });
+  };
+  return { ...layout, setSidebarOpen, setMinimizeSidebar };
 };
