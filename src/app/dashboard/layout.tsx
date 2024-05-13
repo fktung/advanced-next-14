@@ -1,7 +1,7 @@
 import React from "react";
 
 const useRole = () => {
-  return "admin";
+  return "user";
 };
 
 export default function DashboardLayout({
@@ -16,10 +16,8 @@ export default function DashboardLayout({
   const role = useRole();
   return (
     <div>
-      <h1>Dashboard Layout</h1>
       <div>{children}</div>
-      {users}
-      {admins}
+      {role === "admin" ? admins : users}
     </div>
   );
 }

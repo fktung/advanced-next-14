@@ -11,12 +11,24 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  sidebar,
+  navbar,
 }: Readonly<{
   children: React.ReactNode;
+  sidebar: React.ReactNode;
+  navbar: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex flex-1 h-screen">
+          {sidebar}
+          <div className="w-full">
+            {navbar}
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
