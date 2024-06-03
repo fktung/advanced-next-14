@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import AnimateHeight from "react-animate-height";
-import IconCaretsDown from "@/components/icon/icon-carets-down";
 import IconMenuDashboard from "@/components/icon/menu/icon-menu-dashboard";
 import IconCaretDown from "@/components/icon/icon-caret-down";
 import IconMinus from "@/components/icon/icon-minus";
@@ -13,19 +12,6 @@ import IconMenuScrumboard from "@/components/icon/menu/icon-menu-scrumboard";
 import IconMenuContacts from "@/components/icon/menu/icon-menu-contacts";
 import IconMenuInvoice from "@/components/icon/menu/icon-menu-invoice";
 import IconMenuCalendar from "@/components/icon/menu/icon-menu-calendar";
-import IconMenuComponents from "@/components/icon/menu/icon-menu-components";
-import IconMenuElements from "@/components/icon/menu/icon-menu-elements";
-import IconMenuCharts from "@/components/icon/menu/icon-menu-charts";
-import IconMenuWidgets from "@/components/icon/menu/icon-menu-widgets";
-import IconMenuFontIcons from "@/components/icon/menu/icon-menu-font-icons";
-import IconMenuDragAndDrop from "@/components/icon/menu/icon-menu-drag-and-drop";
-import IconMenuTables from "@/components/icon/menu/icon-menu-tables";
-import IconMenuDatatables from "@/components/icon/menu/icon-menu-datatables";
-import IconMenuForms from "@/components/icon/menu/icon-menu-forms";
-import IconMenuUsers from "@/components/icon/menu/icon-menu-users";
-import IconMenuPages from "@/components/icon/menu/icon-menu-pages";
-import IconMenuAuthentication from "@/components/icon/menu/icon-menu-authentication";
-import IconMenuDocumentation from "@/components/icon/menu/icon-menu-documentation";
 import Link from "next/link";
 import { getTranslation } from "@/locales/i18n";
 
@@ -51,7 +37,7 @@ export const MenuSidebar = () => {
             >
               <div className="flex items-center">
                 <IconMenuDashboard className="shrink-0 group-hover:!text-primary" />
-                <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                   {t("dashboard")}
                 </span>
               </div>
@@ -93,7 +79,7 @@ export const MenuSidebar = () => {
                 <Link href="/apps/chat" className="group">
                   <div className="flex items-center">
                     <IconMenuChat className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                       {t("chat")}
                     </span>
                   </div>
@@ -103,7 +89,7 @@ export const MenuSidebar = () => {
                 <Link href="/apps/mailbox" className="group">
                   <div className="flex items-center">
                     <IconMenuMailbox className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                       {t("mailbox")}
                     </span>
                   </div>
@@ -113,7 +99,7 @@ export const MenuSidebar = () => {
                 <Link href="/apps/todolist" className="group">
                   <div className="flex items-center">
                     <IconMenuTodo className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                       {t("todo_list")}
                     </span>
                   </div>
@@ -123,7 +109,7 @@ export const MenuSidebar = () => {
                 <Link href="/apps/notes" className="group">
                   <div className="flex items-center">
                     <IconMenuNotes className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                       {t("notes")}
                     </span>
                   </div>
@@ -133,7 +119,7 @@ export const MenuSidebar = () => {
                 <Link href="/apps/scrumboard" className="group">
                   <div className="flex items-center">
                     <IconMenuScrumboard className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                       {t("scrumboard")}
                     </span>
                   </div>
@@ -143,7 +129,7 @@ export const MenuSidebar = () => {
                 <Link href="/apps/contacts" className="group">
                   <div className="flex items-center">
                     <IconMenuContacts className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                       {t("contacts")}
                     </span>
                   </div>
@@ -159,7 +145,7 @@ export const MenuSidebar = () => {
                 >
                   <div className="flex items-center">
                     <IconMenuInvoice className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                       {t("invoice")}
                     </span>
                   </div>
@@ -197,7 +183,7 @@ export const MenuSidebar = () => {
                 <Link href="/apps/calendar" className="group">
                   <div className="flex items-center">
                     <IconMenuCalendar className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
                       {t("calendar")}
                     </span>
                   </div>
