@@ -13,7 +13,7 @@ export const Sidebar = () => {
     useLayout();
   return (
     <div
-      className={`w-full bg-white max-h-fit h-screen absolute top-0 bottom-0 flex flex-col ${
+      className={`w-full bg-white max-h-fit h-screen absolute lg:static top-0 bottom-0 flex flex-col z-10 ${
         sidebarOpen ? "left-0" : "-left-[100%]"
       } ${
         minimizeSidebar ? "max-w-72" : "max-w-16"
@@ -33,7 +33,7 @@ export const Sidebar = () => {
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className={`absolute top-0 bottom-0 ${
             minimizeSidebar ? "right-4" : "-right-10"
-          } transition-all duration-300`}
+          } transition-all duration-300 lg:hidden z-10`}
         >
           <AiOutlineClose size={SIZE_ICON} />
         </button>
