@@ -20,11 +20,19 @@ export const Sidebar = () => {
     >
       <div className="h-16 bg-purple-300 relative flex items-center px-4">
         <div className="relative h-12 aspect-[3/1] overflow-hidden">
-          <Image src={URL_CDN + "/asset/b-logo.png"} alt="logo" fill />
+          <Image
+            src={URL_CDN + "/asset/b-logo.png"}
+            alt="logo"
+            fill
+            objectFit={`cover`}
+            objectPosition="left"
+          />
         </div>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="absolute right-4 top-0 bottom-0"
+          className={`absolute right-4 top-0 bottom-0 ${
+            minimizeSidebar ? "right-4" : "-right-10"
+          } transition-all duration-300`}
         >
           <AiOutlineClose size={SIZE_ICON} />
         </button>
