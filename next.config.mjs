@@ -1,8 +1,20 @@
+import withPWAInit from "@ducanh2912/next-pwa";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["magnercare-dev.s3.ap-southeast-1.amazonaws.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "magnercare-dev.s3.ap-southeast-1.amazonaws.com",
+      },
+    ],
   },
 };
 
-export default nextConfig;
+const withPWA = withPWAInit({
+  dest: "public",
+});
+
+export default withPWA({
+  ...nextConfig,
+});
