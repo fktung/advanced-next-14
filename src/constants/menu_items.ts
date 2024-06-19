@@ -37,12 +37,12 @@ export const MENU_ITEMS = [
       {
         name: "Product",
         icon: "Product",
-        link: "/product/product",
+        link: "/product",
       },
       {
         name: "Category",
         icon: "productCategory",
-        link: "/product",
+        link: "/product/category",
       },
     ],
   },
