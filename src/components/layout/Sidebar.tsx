@@ -5,8 +5,8 @@ import { URL_CDN } from "@/lib/config";
 import Image from "next/image";
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { FaChevronLeft } from "react-icons/fa";
 import { MenuSidebar } from "./MenuSidebar";
+import { ButtonMinimizeSidebar } from "../button";
 
 export const Sidebar = () => {
   const { sidebarOpen, minimizeSidebar, setSidebarOpen, setMinimizeSidebar } =
@@ -38,19 +38,15 @@ export const Sidebar = () => {
           <AiOutlineClose size={SIZE_ICON} />
         </button>
       </div>
-      <div className="h-full relative">
+      <div className="flex flex-col h-full relative">
         <MenuSidebar />
-        <button
-          className="absolute bottom-4 right-4"
-          onClick={() => setMinimizeSidebar(!minimizeSidebar)}
+        <div
+          className={`flex ${
+            minimizeSidebar ? "justify-end" : "justify-center"
+          } px-2 absolute w-full py-2 bottom-0 bg-white transition-all duration-300`}
         >
-          <FaChevronLeft
-            size={SIZE_ICON}
-            className={`transition-all duration-300 ${
-              !minimizeSidebar ? "rotate-180" : ""
-            }`}
-          />
-        </button>
+          <ButtonMinimizeSidebar />
+        </div>
       </div>
     </div>
   );

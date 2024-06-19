@@ -14,9 +14,11 @@ import IconMenuInvoice from "@/components/icon/menu/icon-menu-invoice";
 import IconMenuCalendar from "@/components/icon/menu/icon-menu-calendar";
 import Link from "next/link";
 import { getTranslation } from "@/locales/i18n";
+import { useLayout } from "@/hooks/layout";
 
 export const MenuSidebar = () => {
   const { t } = getTranslation();
+  const { minimizeSidebar } = useLayout();
   const [currentMenu, setCurrentMenu] = useState<string>("");
   const toggleMenu = (value: string) => {
     setCurrentMenu((oldValue) => {
@@ -24,9 +26,9 @@ export const MenuSidebar = () => {
     });
   };
   return (
-    <div className="sidebar">
+    <div className="sidebar overflow-auto no-scrollbar">
       <PerfectScrollbar className="relative h-[calc(100vh-80px)] py-4">
-        <ul className="relative space-y-0.5 p-4 py-0 font-semibold">
+        <ul className="relative space-y-0.5 p-3 py-0 font-semibold">
           <li className="menu nav-item">
             <button
               type="button"
@@ -70,8 +72,11 @@ export const MenuSidebar = () => {
             </AnimateHeight>
           </li>
           <h2 className="-mx-4 mb-1 flex items-center bg-white-light/30 px-7 py-3 font-extrabold uppercase dark:bg-dark dark:bg-opacity-[0.08]">
-            <IconMinus className="hidden h-5 w-4 flex-none" />
-            <span>{t("apps")}</span>
+            {minimizeSidebar ? (
+              <span>{t("apps")}</span>
+            ) : (
+              <IconMinus className="h-5 w-5 flex-none" />
+            )}
           </h2>
           <li className="nav-item">
             <ul>

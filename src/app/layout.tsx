@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-1 max-h-screen bg-pink-200 h-full">
+        <div className="flex flex-1 max-h-screen bg-pink-200">
           {sidebar}
           <div className="w-full">
             {navbar}
