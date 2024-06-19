@@ -15,6 +15,8 @@ import IconMenuCalendar from "@/components/icon/menu/icon-menu-calendar";
 import Link from "next/link";
 import { getTranslation } from "@/locales/i18n";
 import { useLayout } from "@/hooks/layout";
+import { MENU_ITEMS } from "@/constants/menu_items";
+import { ICONS_MENU } from "@/constants/IconsMenu";
 
 export const MenuSidebar = () => {
   const { t } = getTranslation();
@@ -130,17 +132,64 @@ export const MenuSidebar = () => {
                   </div>
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link href="/apps/contacts" className="group">
-                  <div className="flex items-center">
-                    <IconMenuContacts className="shrink-0 group-hover:!text-primary" />
-                    <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
-                      {t("contacts")}
-                    </span>
-                  </div>
-                </Link>
-              </li>
-              <li className="menu nav-item">
+              {MENU_ITEMS.map((item, idx) => {
+                if (item.link) {
+                  return (
+                    <li className="nav-item" key={idx}>
+                      <Link href={item.link ?? ""} className="group">
+                        <div className="flex items-center">
+                          {ICONS_MENU[item.icon as keyof typeof ICONS_MENU]}
+                          <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                            {t(item.name)}
+                          </span>
+                        </div>
+                      </Link>
+                    </li>
+                  );
+                }
+                if (item.children) {
+                  return (
+                    <li className="menu nav-item" key={idx}>
+                      <button
+                        type="button"
+                        className={`${
+                          currentMenu === item.name ? "active" : ""
+                        } nav-link group w-full`}
+                        onClick={() => toggleMenu(item.name)}
+                      >
+                        <div className="flex items-center">
+                          {ICONS_MENU[item.icon as keyof typeof ICONS_MENU]}
+                          <span className="text-black pl-3 dark:text-[#506690] dark:group-hover:text-white-dark">
+                            {t(item.name)}
+                          </span>
+                        </div>
+                        <div
+                          className={
+                            currentMenu !== item.name
+                              ? "-rotate-90 rtl:rotate-90"
+                              : ""
+                          }
+                        >
+                          <IconCaretDown />
+                        </div>
+                      </button>
+                      <AnimateHeight
+                        duration={300}
+                        height={currentMenu === item.name ? "auto" : 0}
+                      >
+                        <ul className="sub-menu text-gray-500">
+                          {item.children.map((child, i) => (
+                            <li key={i}>
+                              <Link href={child.link}>{t(child.name)}</Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </AnimateHeight>
+                    </li>
+                  );
+                }
+              })}
+              {/* <li className="menu nav-item">
                 <button
                   type="button"
                   className={`${
@@ -183,7 +232,7 @@ export const MenuSidebar = () => {
                     </li>
                   </ul>
                 </AnimateHeight>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <Link href="/apps/calendar" className="group">
                   <div className="flex items-center">
