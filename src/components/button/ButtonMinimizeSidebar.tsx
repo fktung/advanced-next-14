@@ -15,7 +15,7 @@ export const ButtonMinimizeSidebar = (
       <FaChevronLeft
         size={SIZE_ICON_SM}
         className={`transition-all duration-300 ${
-          !minimizeSidebar ? "rotate-180" : ""
+          minimizeSidebar ? "rotate-180" : ""
         }`}
       />
     </button>

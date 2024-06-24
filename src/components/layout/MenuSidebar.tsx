@@ -20,7 +20,7 @@ import { ICONS_MENU } from "@/constants/IconsMenu";
 
 export const MenuSidebar = () => {
   const { t } = getTranslation();
-  const { minimizeSidebar } = useLayout();
+  const { minimizeSubMenu, setMinimizeSubMenu } = useLayout();
   const [currentMenu, setCurrentMenu] = useState<string>("");
   const toggleMenu = (value: string) => {
     setCurrentMenu((oldValue) => {
@@ -63,7 +63,7 @@ export const MenuSidebar = () => {
                         className={`${
                           currentMenu === item.name ? "active" : ""
                         } nav-link group w-full`}
-                        onClick={() => toggleMenu(item.name)}
+                        onClick={() => setMinimizeSubMenu(item.name)}
                       >
                         <div className="flex items-center">
                           {ICONS_MENU[item.icon as keyof typeof ICONS_MENU]}
@@ -83,7 +83,11 @@ export const MenuSidebar = () => {
                       </button>
                       <AnimateHeight
                         duration={300}
-                        height={currentMenu === item.name ? "auto" : 0}
+                        height={
+                          minimizeSubMenu.includes(item.name.toLowerCase())
+                            ? 0
+                            : "auto"
+                        }
                       >
                         <ul className="sub-menu text-gray-500">
                           {item.children.map((child, i) => (

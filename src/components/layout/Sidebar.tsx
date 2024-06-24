@@ -16,7 +16,7 @@ export const Sidebar = () => {
       className={`w-full bg-white max-h-fit h-screen absolute lg:static top-0 bottom-0 flex flex-col z-10 ${
         sidebarOpen ? "left-0" : "-left-[100%]"
       } ${
-        minimizeSidebar ? "max-w-72" : "max-w-16"
+        minimizeSidebar ? "max-w-16" : "max-w-72"
       } transition-all duration-300 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)]`}
     >
       <div className="h-16 py-2 relative flex items-center px-4 border-b">
@@ -32,7 +32,7 @@ export const Sidebar = () => {
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className={`absolute top-0 bottom-0 ${
-            minimizeSidebar ? "right-4" : "-right-10"
+            minimizeSidebar ? "-right-10" : "right-4"
           } transition-all duration-300 lg:hidden z-10`}
         >
           <AiOutlineClose size={SIZE_ICON} />
@@ -42,7 +42,7 @@ export const Sidebar = () => {
         <MenuSidebar />
         <div
           className={`flex ${
-            minimizeSidebar ? "justify-end" : "justify-center"
+            minimizeSidebar ? "justify-center" : "justify-end"
           } px-2 absolute w-full py-2 bottom-0 bg-white transition-all duration-300`}
         >
           <ButtonMinimizeSidebar />

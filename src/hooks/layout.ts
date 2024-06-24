@@ -3,11 +3,13 @@ import { create } from "zustand";
 type TLayoutStore = {
   sidebarOpen: boolean;
   minimizeSidebar: boolean;
+  minimizeSubMenu: string[];
 };
 
 const layoutStore = create<TLayoutStore>((set) => ({
   sidebarOpen: true,
   minimizeSidebar: false,
+  minimizeSubMenu: [],
 }));
 
 export const useLayout = () => {
@@ -19,5 +21,16 @@ export const useLayout = () => {
   const setMinimizeSidebar = (set: boolean) => {
     layoutStore.setState({ minimizeSidebar: set });
   };
-  return { ...layout, setSidebarOpen, setMinimizeSidebar };
+  const setMinimizeSubMenu = (name: string) => {
+    if (layout.minimizeSubMenu.includes(name)) {
+      layoutStore.setState({
+        minimizeSubMenu: layout.minimizeSubMenu.filter((e) => e !== name),
+      });
+    } else {
+      layoutStore.setState({
+        minimizeSubMenu: [...layout.minimizeSubMenu, name],
+      });
+    }
+  };
+  return { ...layout, setSidebarOpen, setMinimizeSidebar, setMinimizeSubMenu };
 };
