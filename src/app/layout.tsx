@@ -61,11 +61,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-1 max-h-screen bg-pink-200">
+        <div className="flex flex-1 max-h-screen">
           {sidebar}
           <div className="w-full">
             {navbar}
-            {children}
+            <div className="p-4 lg:p-6">{children}</div>
           </div>
         </div>
       </body>

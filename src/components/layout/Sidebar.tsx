@@ -25,7 +25,7 @@ export const Sidebar = () => {
       className={`w-full bg-white max-h-fit h-screen absolute lg:static top-0 bottom-0 flex flex-col z-10 group ${
         sidebarOpen ? "left-0" : "-left-[100%]"
       } ${
-        minimizeSidebar ? "max-w-72" : "max-w-16 hover:max-w-72"
+        minimizeSidebar ? "max-w-64" : "max-w-16 hover:max-w-64"
       } transition-all duration-300 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)]`}
     >
       <div className="h-16 py-2 relative flex items-center px-4 border-b">
