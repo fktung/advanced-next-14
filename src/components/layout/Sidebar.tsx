@@ -22,7 +22,7 @@ export const Sidebar = () => {
     <div
       onMouseEnter={() => setIsMouseEnter(true)}
       onMouseLeave={() => setIsMouseEnter(false)}
-      className={`w-full bg-white max-h-fit h-screen absolute lg:static top-0 bottom-0 flex flex-col z-10 group ${
+      className={`w-full bg-white max-h-fit h-screen fixed lg:static top-0 bottom-0 flex flex-col z-10 group ${
         sidebarOpen ? "left-0" : "-left-[100%]"
       } ${
         minimizeSidebar ? "max-w-64" : "max-w-16 hover:max-w-64"
@@ -41,7 +41,7 @@ export const Sidebar = () => {
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className={`absolute top-0 bottom-0 ${
-            minimizeSidebar ? "-right-10" : "right-4"
+            isMouseEnter || minimizeSidebar ? "right-4" : "-right-10"
           } transition-all duration-300 lg:hidden z-10`}
         >
           <AiOutlineClose size={SIZE_ICON} />

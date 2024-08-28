@@ -387,7 +387,7 @@ const ComponentsDashboardFinance = () => {
   };
 
   return (
-    <div>
+    <>
       <ul className="flex space-x-2 rtl:space-x-reverse">
         <li>
           <Link href="/" className="text-primary hover:underline">
@@ -408,7 +408,7 @@ const ComponentsDashboardFinance = () => {
               <div className="dropdown">
                 <Dropdown
                   offset={[0, 5]}
-                  placement={`bottom-start`}
+                  placement={`bottom-end`}
                   btnClassName="hover:opacity-80"
                   button={
                     <IconHorizontalDots className="opacity-70 hover:opacity-80" />
@@ -447,7 +447,7 @@ const ComponentsDashboardFinance = () => {
               <div className="dropdown">
                 <Dropdown
                   offset={[0, 5]}
-                  placement={`bottom-start`}
+                  placement={`bottom-end`}
                   btnClassName="hover:opacity-80"
                   button={
                     <IconHorizontalDots className="opacity-70 hover:opacity-80" />
@@ -486,7 +486,7 @@ const ComponentsDashboardFinance = () => {
               <div className="dropdown">
                 <Dropdown
                   offset={[0, 5]}
-                  placement={`bottom-start`}
+                  placement={`bottom-end`}
                   btnClassName="hover:opacity-80"
                   button={
                     <IconHorizontalDots className="opacity-70 hover:opacity-80" />
@@ -525,7 +525,7 @@ const ComponentsDashboardFinance = () => {
               <div className="dropdown">
                 <Dropdown
                   offset={[0, 5]}
-                  placement={`bottom-start`}
+                  placement={`bottom-end`}
                   btnClassName="hover:opacity-80"
                   button={
                     <IconHorizontalDots className="opacity-70 hover:opacity-80" />
@@ -772,7 +772,7 @@ const ComponentsDashboardFinance = () => {
                 <div className="dropdown">
                   <Dropdown
                     offset={[0, 5]}
-                    placement={`bottom-start`}
+                    placement={`bottom-end`}
                     btnClassName="hover:opacity-80"
                     button={
                       <IconHorizontalDots className="opacity-70 hover:opacity-80" />
@@ -826,7 +826,7 @@ const ComponentsDashboardFinance = () => {
                 <div className="dropdown">
                   <Dropdown
                     offset={[0, 5]}
-                    placement={`bottom-start`}
+                    placement={`bottom-end`}
                     button={
                       <IconHorizontalDots className="opacity-70 hover:opacity-80" />
                     }
@@ -958,7 +958,7 @@ const ComponentsDashboardFinance = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

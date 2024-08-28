@@ -13,14 +13,14 @@ export const Navbar = () => {
   const { sidebarOpen, setSidebarOpen } = useLayout();
 
   return (
-    <div className="h-16 bg-white flex justify-between items-center px-2 relative">
+    <div className="bg-white flex justify-between items-center px-2 relative">
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
         className="lg:hidden"
       >
         <HiMenu size={SIZE_ICON} />
       </button>
-      <div className="flex items-center justify-between w-full px-4">
+      <div className="flex h-16 items-center justify-between w-full px-4">
         <NavbarSearch />
         <div className="flex items-center gap-4">
           <NavbarNotification />

@@ -63,7 +63,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex flex-1 max-h-screen">
           {sidebar}
-          <div className="w-full">
+          <div className="w-full flex flex-1 flex-col overflow-y-auto">
             {navbar}
             <div className="p-4 lg:p-6">{children}</div>
           </div>
