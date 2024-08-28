@@ -3,7 +3,7 @@ import { SIZE_ICON } from "@/constants/common";
 import { useLayout } from "@/hooks/layout";
 import { URL_CDN } from "@/lib/config";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { MenuSidebar } from "./MenuSidebar";
 import { ButtonMinimizeSidebar } from "../button";
@@ -12,6 +12,12 @@ export const Sidebar = () => {
   const { sidebarOpen, minimizeSidebar, setSidebarOpen, setMinimizeSidebar } =
     useLayout();
   const [isMouseEnter, setIsMouseEnter] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth > 1024) setMinimizeSidebar(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div
       onMouseEnter={() => setIsMouseEnter(true)}
@@ -35,7 +41,7 @@ export const Sidebar = () => {
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className={`absolute top-0 bottom-0 ${
-            minimizeSidebar ? "right-4" : "-right-10"
+            minimizeSidebar ? "-right-10" : "right-4"
           } transition-all duration-300 lg:hidden z-10`}
         >
           <AiOutlineClose size={SIZE_ICON} />

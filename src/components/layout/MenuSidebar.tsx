@@ -20,7 +20,7 @@ import { ICONS_MENU } from "@/constants/IconsMenu";
 
 export const MenuSidebar = ({ mouseEnter }: { mouseEnter: boolean }) => {
   const { t } = getTranslation();
-  const { minimizeSidebar } = useLayout();
+  const { minimizeSubMenu, setMinimizeSubMenu, minimizeSidebar } = useLayout();
   const [currentMenu, setCurrentMenu] = useState<string>("");
   // const sidebarRef = React.useRef<HTMLDivElement | null>(null);
   const toggleMenu = (value: string) => {
@@ -64,7 +64,9 @@ export const MenuSidebar = ({ mouseEnter }: { mouseEnter: boolean }) => {
                         className={`${
                           currentMenu === item.name ? "active" : ""
                         } nav-link group w-full`}
-                        onClick={() => toggleMenu(item.name)}
+                        onClick={() =>
+                          setMinimizeSubMenu(item.name.toLocaleLowerCase())
+                        }
                       >
                         <div className="flex items-center">
                           {ICONS_MENU[item.icon as keyof typeof ICONS_MENU]}
@@ -84,7 +86,11 @@ export const MenuSidebar = ({ mouseEnter }: { mouseEnter: boolean }) => {
                       </button>
                       <AnimateHeight
                         duration={300}
-                        height={currentMenu === item.name ? "auto" : 0}
+                        height={
+                          minimizeSubMenu.includes(item.name.toLowerCase())
+                            ? 0
+                            : "auto"
+                        }
                       >
                         <ul className="sub-menu text-gray-500">
                           {item.children.map((child, i) => (
