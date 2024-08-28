@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import AnimateHeight from "react-animate-height";
 import IconMenuDashboard from "@/components/icon/menu/icon-menu-dashboard";
@@ -18,10 +18,11 @@ import { useLayout } from "@/hooks/layout";
 import { MENU_ITEMS } from "@/constants/menu_items";
 import { ICONS_MENU } from "@/constants/IconsMenu";
 
-export const MenuSidebar = () => {
+export const MenuSidebar = ({ mouseEnter }: { mouseEnter: boolean }) => {
   const { t } = getTranslation();
   const { minimizeSidebar } = useLayout();
   const [currentMenu, setCurrentMenu] = useState<string>("");
+  // const sidebarRef = React.useRef<HTMLDivElement | null>(null);
   const toggleMenu = (value: string) => {
     setCurrentMenu((oldValue) => {
       return oldValue === value ? "" : value;
@@ -88,7 +89,18 @@ export const MenuSidebar = () => {
                         <ul className="sub-menu text-gray-500">
                           {item.children.map((child, i) => (
                             <li key={i}>
-                              <Link href={child.link}>{t(child.name)}</Link>
+                              <Link
+                                className={
+                                  minimizeSidebar || mouseEnter
+                                    ? "px-9"
+                                    : "pl-2"
+                                }
+                                href={child.link}
+                              >
+                                {minimizeSidebar || mouseEnter
+                                  ? t(child.name)
+                                  : t(child.name.split("")[0])}
+                              </Link>
                             </li>
                           ))}
                         </ul>

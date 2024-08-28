@@ -3,7 +3,7 @@ import { SIZE_ICON } from "@/constants/common";
 import { useLayout } from "@/hooks/layout";
 import { URL_CDN } from "@/lib/config";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { MenuSidebar } from "./MenuSidebar";
 import { ButtonMinimizeSidebar } from "../button";
@@ -11,12 +11,15 @@ import { ButtonMinimizeSidebar } from "../button";
 export const Sidebar = () => {
   const { sidebarOpen, minimizeSidebar, setSidebarOpen, setMinimizeSidebar } =
     useLayout();
+  const [isMouseEnter, setIsMouseEnter] = useState(false);
   return (
     <div
-      className={`w-full bg-white max-h-fit h-screen absolute lg:static top-0 bottom-0 flex flex-col z-10 ${
+      onMouseEnter={() => setIsMouseEnter(true)}
+      onMouseLeave={() => setIsMouseEnter(false)}
+      className={`w-full bg-white max-h-fit h-screen absolute lg:static top-0 bottom-0 flex flex-col z-10 group ${
         sidebarOpen ? "left-0" : "-left-[100%]"
       } ${
-        minimizeSidebar ? "max-w-72" : "max-w-16"
+        minimizeSidebar ? "max-w-72" : "max-w-16 hover:max-w-72"
       } transition-all duration-300 shadow-[5px_0_25px_0_rgba(94,92,154,0.1)]`}
     >
       <div className="h-16 py-2 relative flex items-center px-4 border-b">
@@ -39,13 +42,13 @@ export const Sidebar = () => {
         </button>
       </div>
       <div className="flex flex-col h-full relative">
-        <MenuSidebar />
+        <MenuSidebar mouseEnter={isMouseEnter} />
         <div
-          className={`flex ${
-            minimizeSidebar ? "justify-end" : "justify-center"
-          } px-2 absolute w-full py-2 bottom-0 bg-white transition-all duration-300`}
+          className={`flex justify-end ${
+            !minimizeSidebar && "px-0"
+          } px-3 absolute w-full py-2 bottom-0 bg-white transition-all duration-300`}
         >
-          <ButtonMinimizeSidebar />
+          <ButtonMinimizeSidebar className="w-full flex justify-end" />
         </div>
       </div>
     </div>
