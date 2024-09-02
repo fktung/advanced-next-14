@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-1 max-h-screen">
+        <div className="flex flex-1 max-h-screen relative">
           {sidebar}
           <div className="w-full flex flex-1 flex-col overflow-y-auto">
             {navbar}
