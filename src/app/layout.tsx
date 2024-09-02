@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "../styles/tailwind.css";
+import { WrapperLayout } from "@/components/layout/WrapperLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,23 +52,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-  sidebar,
-  navbar,
 }: Readonly<{
   children: React.ReactNode;
-  sidebar: React.ReactNode;
-  navbar: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-1 max-h-screen relative">
-          {sidebar}
-          <div className="w-full flex flex-1 flex-col overflow-y-auto">
-            {navbar}
-            <div className="p-4 lg:p-6">{children}</div>
-          </div>
-        </div>
+        <WrapperLayout>{children}</WrapperLayout>
       </body>
     </html>
   );
